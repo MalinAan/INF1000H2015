@@ -1,0 +1,38 @@
+*MAT1100
+Mathias
+Martin
+Elsie
+Ole Petter
+Andreas
+*MAT1001
+Jonathan
+Emilie
+Fritjof
+Esben
+Mari
+Henrik
+Gard
+*INF1000
+Jonathan
+Fahd
+Ida
+Esben
+Fritjof
+Malin
+Nicolai
+Andreas
+Siri
+Martin
+Maria
+Mari
+Elsie
+Henrik
+Ole Petter
+Geir Kjetil
+Gard
+*INF1500
+Ida
+Fahd
+Emilie
+Nicolai
+Malin
