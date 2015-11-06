@@ -24,6 +24,16 @@ public class Student{
     }
   }
 
+  public void fjernMegFraAlleMineFag(){
+    for(Fag etFagStudentTar : fagliste.values()){
+      etFagStudentTar.fjernStudentFraFag(this);
+    }
+  }
+
+  public int antFag(){
+    return fagliste.size();
+  }
+
   public void printUtMineFag(){
     for(String fagkode : fagliste.keySet()){
       System.out.println(fagkode);

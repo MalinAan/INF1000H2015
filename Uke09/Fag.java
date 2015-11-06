@@ -24,9 +24,23 @@ public class Fag{
     }
   }
 
+  public void fjernMegFraAlleMineStudenter(){
+    for(Student studentSomTarFag : studenter.values()){
+      studentSomTarFag.fjernFagFraStudent(this);
+    }
+  }
+
   public void skrivUtMineStudenter(){
     for(String navnTilStudent : studenter.keySet()){
       System.out.println(navnTilStudent);
     }
+  }
+
+  public int antStudenter(){
+    return studenter.size();
+  }
+
+  public HashMap<String, Student> hentStudentListe(){
+    return studenter;
   }
 }

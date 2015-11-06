@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Scanner;
 import java.io.File;
+import java.io.PrintWriter;
 
 public class Skole{
   private HashMap<String, Student> studenter = new HashMap<String, Student>();
@@ -195,18 +196,63 @@ public class Skole{
   }
 
   public void slettStudent(){
+      System.out.println("Hvilket student vil du slette?");
+      String studentNavn = tastatur.nextLine();
+
+      if(finnesStudent(studentNavn)){
+        Student studentSomSkalSlettes = studenter.get(studentNavn);
+        studentSomSkalSlettes.fjernMegFraAlleMineFag();
+        studenter.remove(studentNavn);
+      } else {
+        System.out.println("Denne studenten finnes ikke i systemet");
+      }
 
   }
 
   public void slettFag(){
+    System.out.println("Hvilket fag vil du slette?");
+    String fagNavn = tastatur.nextLine();
 
+    if(finnesFag(fagNavn)){
+      Fag fagSomSkalSlettes = kurs.get(fagNavn);
+      fagSomSkalSlettes.fjernMegFraAlleMineStudenter();
+      kurs.remove(fagNavn);
+    } else {
+      System.out.println("Dette faget finnes ikke i systemet");
+    }
   }
 
   public void finnMestPopulaereFag(){
+    Fag harMestStudenterHittil = null;
+
+    for(Fag etFag : kurs.values()){
+      if(harMestStudenterHittil == null){
+        harMestStudenterHittil = etFag;
+      } else {
+        if(harMestStudenterHittil.antStudenter() < etFag.antStudenter()){
+          harMestStudenterHittil = etFag;
+        }
+      }
+    }
+
+    System.out.println("Det mest populaere faget er: " + harMestStudenterHittil.toString());
 
   }
 
   public void finnMestArbeidsommeStudent(){
+    Student harMestFagHittil = null;
+
+    for(Student enStudent : studenter.values()){
+      if(harMestFagHittil == null){
+        harMestFagHittil = enStudent;
+      } else {
+        if(harMestFagHittil.antFag() < enStudent.antFag()){
+          harMestFagHittil = enStudent;
+        }
+      }
+    }
+
+    System.out.println("Det mest arbeidssomme studenten er: " + harMestFagHittil.toString());
 
   }
 
@@ -218,7 +264,20 @@ public class Skole{
     }
   }
 
-  public void avslutt(){
+  public void avslutt() throws Exception{
+    PrintWriter skriver = new PrintWriter("emnestudenter.txt");
+    //Gaar igjennom alle fag i kurslista.
+    for(Fag etFag : kurs.values()){
+      //Stjerne betyr at det er et fag.
+      skriver.println("*" + etFag.toString());
+      HashMap<String, Student> studenterSomTarEtFag = etFag.hentStudentListe();
+      //Skriver ut alle studenter som tar det faget.
+      for(Student studentSomTarFag : studenterSomTarEtFag.values()){
+        skriver.println(studentSomTarFag.toString());
+      }
+
+    }
+    skriver.close();
 
   }
 
