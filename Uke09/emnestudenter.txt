@@ -1,14 +1,14 @@
 *MAT1100
 Mathias
 Martin
-Elsie
 Ole Petter
+Elsie
 Andreas
 *MAT1001
-Jonathan
 Emilie
-Fritjof
+Jonathan
 Esben
+Fritjof
 Mari
 Henrik
 Gard
@@ -25,14 +25,15 @@ Siri
 Martin
 Maria
 Mari
-Elsie
-Henrik
 Ole Petter
+Henrik
+Elsie
 Geir Kjetil
+Zahra
 Gard
 *INF1500
-Ida
-Fahd
 Emilie
-Nicolai
+Fahd
+Ida
 Malin
+Nicolai
