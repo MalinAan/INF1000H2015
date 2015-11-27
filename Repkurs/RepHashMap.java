@@ -38,12 +38,6 @@ public class RepHashMap{
 				"\t Telefon: " + person.hentNr());
 		}
 
-		//Ved aa bruke keySet
-		for(String nokkel : personliste.keySet()){
-			System.out.println(nokkel);
-		}
-
-		if(personliste.containsKey(navn))
 	}
 
 	public String hentNrFraNavn(String navn){
